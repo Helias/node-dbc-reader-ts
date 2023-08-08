@@ -1,0 +1,82 @@
+{
+  "name": "@gjuchault/typescript-library-starter",
+  "version": "0.0.0-development",
+  "description": "Yet another typescript library starter template",
+  "keywords": [
+    "typescript",
+    "library",
+    "starter",
+    "template"
+  ],
+  "homepage": "https://github.com/gjuchault/typescript-library-starter",
+  "bugs": "https://github.com/gjuchault/typescript-library-starter/issues",
+  "author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
+  "repository": "gjuchault/typescript-library-starter",
+  "type": "module",
+  "exports": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": "^18.16.1",
+    "npm": "^9.5.1"
+  },
+  "volta": {
+    "node": "18.16.1",
+    "npm": "9.5.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "setup": "tsx ./scripts/setup.ts",
+    "build": "npm run clean && npm run type:dts && npm run build:main",
+    "build:main": "tsx ./scripts/build.ts",
+    "clean": "rimraf build coverage nyc_output",
+    "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "type:check": "tsc --noEmit",
+    "format": "prettier \"src/**/*.ts\" --write",
+    "format:check": "prettier \"src/**/*.ts\" --check",
+    "lint": "eslint src --ext .ts --fix",
+    "lint:check": "eslint src --ext .ts",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "test:setup": "tsx ./scripts/test-setup.ts",
+    "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
+    "cz": "cz",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@ryansonshine/commitizen": "^4.2.8",
+    "@ryansonshine/cz-conventional-changelog": "^3.3.4",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^10.0.1",
+    "@semantic-release/github": "^9.0.4",
+    "@semantic-release/npm": "^10.0.4",
+    "@semantic-release/release-notes-generator": "^11.0.4",
+    "@types/node": "^18.16.3",
+    "@types/prompts": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "c8": "^8.0.1",
+    "cspell": "^6.31.2",
+    "esbuild": "^0.18.19",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "globby": "^13.2.2",
+    "nyc": "^15.1.0",
+    "prettier": "^3.0.1",
+    "prompts": "^2.4.2",
+    "rimraf": "^5.0.1",
+    "semantic-release": "^21.0.7",
+    "slugify": "^1.6.6",
+    "source-map-support": "^0.5.21",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.1"
+  }
+}
